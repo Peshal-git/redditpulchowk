@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create a Post</title>
+        <link rel="stylesheet" href="/static/css/createnewstyle.css">
+    </head>
+    <body>
+        <div class="home-button">
+            <a href="/home">Home</a>
+        </div>        
+        <div class="form-container">
+            <form action="{% url 'save-post' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="postTitle">Post Title:</label>
+                    <input type="text" id="postTitle" name="postTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="postDetails">Post Details:</label>
+                    <textarea id="postDetails" name="postDetails" rows="4"
+                        required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Submit Post</button>
+            </form>
+        </div>
+    </body>
+</html>

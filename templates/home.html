@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="/static/css/homestyle.css">
+    </head>
+    <body>
+
+        <div class="create-post-container">
+            <a href="/create-post" class="create-post-button">Create a
+                Post</a>
+        </div>
+
+        <div class="search-bar-container">
+            <form method="get">
+                <input type="text" placeholder="Search..." name="postname"
+                    class="search-bar">
+                <button class="search-button">Search</button>
+            </form>
+        </div>
+        <div class="container">
+            {% for n in postData %}
+            <div class="post">
+                <a href="/postdetails/{{n.slug}}"
+                    class="title">{{n.post_title}}</a>
+                <div class="info">Posted by {{n.post_user}} on
+                    {{n.post_time}}</div>
+                {% empty %}
+                No data found.
+            </div>
+            {% endfor %}
+
+            <!-- Add more posts here -->
+        </div>
+    </body>
+</html>
